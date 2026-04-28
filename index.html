@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Everyday Notes</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="sidebar" aria-label="메모 목록">
+        <div class="brand-row">
+          <div>
+            <p class="eyebrow">Web Notes</p>
+            <h1>Everyday Notes</h1>
+          </div>
+          <button id="newNoteBtn" class="icon-btn primary" type="button" title="새 메모">+</button>
+        </div>
+
+        <label class="search-wrap">
+          <span>검색</span>
+          <input id="searchInput" type="search" placeholder="제목이나 내용을 찾아보세요" autocomplete="off" />
+        </label>
+
+        <div class="toolbar">
+          <button id="voiceBtn" type="button">음성 명령</button>
+          <button id="exportBtn" type="button">내보내기</button>
+          <label class="import-btn">
+            가져오기
+            <input id="importInput" type="file" accept="application/json" />
+          </label>
+        </div>
+
+        <p id="voiceStatus" class="status" aria-live="polite"></p>
+        <div id="notesList" class="notes-list"></div>
+      </section>
+
+      <section class="editor" aria-label="메모 편집기">
+        <div class="editor-top">
+          <input id="titleInput" class="title-input" placeholder="제목" />
+          <button id="deleteBtn" class="danger-btn" type="button">삭제</button>
+        </div>
+
+        <textarea id="bodyInput" class="body-input" placeholder="회의 내용, 아이디어, 할 일을 적어보세요"></textarea>
+
+        <div class="ai-panel">
+          <div>
+            <h2>AI 요약</h2>
+            <p>요약 프록시 서버를 연결하면 회의 내용을 짧게 정리할 수 있습니다.</p>
+          </div>
+          <div class="ai-actions">
+            <input id="summaryEndpointInput" type="url" placeholder="요약 프록시 주소" />
+            <button id="summarizeBtn" type="button">요약하기</button>
+          </div>
+        </div>
+
+        <section id="summaryOutput" class="summary-output" aria-live="polite"></section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
